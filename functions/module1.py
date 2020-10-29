@@ -40,8 +40,8 @@ def t_test(data_group1, data_group2, confidence=0.95):
 
     t, p = stats.ttest_ind(data_group1, data_group2, equal_var = equal_variance)
 
-    accept_H0 = "False"
-    if p>alpha:
-        accept_H0 = "True"
+    reject_H0 = "True"
+    if p > alpha:
+        reject_H0 = "False"
 
-    return({'t': t, "p": p, "Accept H0": accept_H0})
+    return({'t': t, "p": p, "Reject H0": reject_H0})
