@@ -26,3 +26,22 @@ def get_confidence_interval(data, confidence=0.95):
 
     c_interval = stats.t.interval(confidence, n-1, m, se)  # determines the confidence interval
     return c_interval  # which is of the form (lower bound, upper bound)
+
+
+def t_test(data_group1, data_group2, confidence=0.95):
+    """ TODO: Document
+    """
+    alpha = 1-confidence
+
+    if stats.levene(data_group1, data_group2)[1]>alpha:
+        equal_variance = True
+    else:
+        equal_variance = False
+
+    t, p = stats.ttest_ind(data_group1, data_group2, equal_var = equal_variance)
+
+    reject_H0 = "True"
+    if p > alpha:
+        reject_H0 = "False"
+
+    return({'t': t, "p": p, "Reject H0": reject_H0})

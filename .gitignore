@@ -1,2 +1,4 @@
 env/
 .vscode/settings.json
+.ipynb_checkpoints/
+functions/__pycache__/
