@@ -9,7 +9,7 @@ import itertools
 from tabulate import tabulate
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
-def ANOVA(dataset,independent,dependent,confidence = 0.95):
+def ANOVA(dataset, independent, dependent, confidence=0.95):
     """ Calculates the ANOVA for a given dataset and prints an ANOVA table
         and results of post hoc test if test was performed.
 
@@ -66,7 +66,7 @@ def ANOVA(dataset,independent,dependent,confidence = 0.95):
     print('Significance (p value): '+str(p))
     print('\n')
     alpha = 1-confidence
-    if p<alpha:
+    if p < alpha:
         print("Reject null-hypothesis: There are statistical differences present.")
         print(pairwise_tukeyhsd(dataset[dependent], dataset[independent],alpha=alpha))
     else:
