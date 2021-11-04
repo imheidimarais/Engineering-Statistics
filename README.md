@@ -1,2 +1,2 @@
 # Engineering-Statistics
-Code for the module OAH305 at MDH, HT20.
+Code for the module MTK327 at MDH, HT21.
